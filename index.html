@@ -1,0 +1,919 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VIGNESH | Java Developer</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff9d6;
+            color: #171717;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 20px 8%;
+
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(10px);
+
+            border-bottom: 2px solid #171717;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #d19e00;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #171717;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #d19e00;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding: 120px 8% 60px;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 85% 20%,
+                    #ffe95a 0 13%,
+                    transparent 14%
+                ),
+                linear-gradient(
+                    135deg,
+                    #fffbe7,
+                    #fff1a0,
+                    #ffd900
+                );
+        }
+
+        .hero-content {
+            max-width: 650px;
+            z-index: 2;
+        }
+
+        .badge {
+            display: inline-block;
+
+            background: #171717;
+            color: #ffd900;
+
+            padding: 10px 18px;
+
+            border-radius: 30px;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 70px;
+            line-height: 1.05;
+        }
+
+        .hero h1 span {
+            color: #d19e00;
+        }
+
+        .hero p {
+            margin-top: 25px;
+
+            font-size: 18px;
+            line-height: 1.7;
+
+            color: #444;
+        }
+
+        /* ================= BUTTON ================= */
+
+        .btn {
+            display: inline-block;
+
+            margin-top: 25px;
+            margin-right: 10px;
+
+            padding: 14px 25px;
+
+            background: #171717;
+            color: #ffd900;
+
+            text-decoration: none;
+
+            border-radius: 12px;
+
+            font-weight: bold;
+
+            box-shadow: 5px 5px 0 #d3a900;
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+        }
+
+        .btn-light {
+            background: white;
+            color: #171717;
+
+            border: 2px solid #171717;
+
+            box-shadow: none;
+        }
+
+        /* ================= MINION ================= */
+
+        .minion {
+            position: absolute;
+
+            right: 8%;
+            bottom: 8%;
+
+            width: 280px;
+            height: 360px;
+
+            background: #ffd900;
+
+            border: 7px solid #171717;
+
+            border-radius: 140px 140px 80px 80px;
+
+            box-shadow: 10px 10px 0 #171717;
+        }
+
+        /* Hair */
+
+        .hair {
+            position: absolute;
+
+            top: -35px;
+            left: 100px;
+
+            width: 10px;
+            height: 45px;
+
+            background: #171717;
+
+            transform: rotate(-15deg);
+
+            box-shadow:
+                30px -8px #171717,
+                60px 0 #171717;
+        }
+
+        /* Goggles */
+
+        .goggle {
+            position: absolute;
+
+            top: 105px;
+            left: 25px;
+
+            width: 220px;
+            height: 75px;
+
+            background: #333;
+
+            border: 7px solid #171717;
+
+            border-radius: 50px;
+        }
+
+        .eye {
+            position: absolute;
+
+            top: 116px;
+            left: 108px;
+
+            width: 55px;
+            height: 55px;
+
+            background: white;
+
+            border: 5px solid #171717;
+
+            border-radius: 50%;
+        }
+
+        .pupil {
+            position: absolute;
+
+            top: 13px;
+            left: 15px;
+
+            width: 18px;
+            height: 18px;
+
+            background: #171717;
+
+            border-radius: 50%;
+        }
+
+        /* Smile */
+
+        .smile {
+            position: absolute;
+
+            top: 205px;
+            left: 80px;
+
+            width: 120px;
+            height: 60px;
+
+            border-bottom: 9px solid #171717;
+
+            border-radius: 0 0 70px 70px;
+        }
+
+        /* Overall */
+
+        .overall {
+            position: absolute;
+
+            bottom: 0;
+            left: 75px;
+
+            width: 130px;
+            height: 80px;
+
+            background: #2864ad;
+
+            border: 6px solid #171717;
+
+            border-radius: 20px 20px 0 0;
+        }
+
+        /* ================= SECTION ================= */
+
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+
+            font-size: 42px;
+
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: #d19e00;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .card {
+            background: #fffdf0;
+
+            border: 2px solid #171717;
+
+            border-radius: 20px;
+
+            padding: 30px;
+
+            box-shadow: 7px 7px 0 #171717;
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform:
+                translateY(-8px);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+
+            font-size: 22px;
+        }
+
+        .card p {
+            color: #555;
+
+            line-height: 1.7;
+        }
+
+        /* ================= SKILLS ================= */
+
+        #skills {
+            background: white;
+        }
+
+        .skills {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .skill {
+            text-align: center;
+
+            padding: 25px;
+        }
+
+        .skill h3 {
+            font-size: 20px;
+
+            margin-bottom: 10px;
+        }
+
+        .skill span {
+            color: #666;
+        }
+
+        /* ================= PROJECTS ================= */
+
+        .project {
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .project::before {
+            content: "";
+
+            position: absolute;
+
+            width: 100px;
+            height: 100px;
+
+            right: -30px;
+            top: -30px;
+
+            background: #ffd900;
+
+            border: 4px solid #171717;
+
+            border-radius: 50%;
+        }
+
+        .tag {
+            display: inline-block;
+
+            background: #ffd900;
+
+            padding: 6px 12px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+        }
+
+        /* ================= CONTACT ================= */
+
+        #contact {
+            background: #171717;
+
+            color: white;
+
+            text-align: center;
+        }
+
+        #contact .section-title {
+            color: white;
+        }
+
+        #contact p {
+            max-width: 650px;
+
+            margin: auto;
+
+            color: #ddd;
+
+            line-height: 1.7;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #111;
+
+            color: #aaa;
+
+            text-align: center;
+
+            padding: 25px;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width: 900px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 50px;
+            }
+
+            .minion {
+                opacity: 0.2;
+
+                right: -80px;
+            }
+
+            .cards,
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+    <div class="logo">
+        VICKY<span></span>
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="#home">Home</a>
+        </li>
+
+        <li>
+            <a href="#about">About</a>
+        </li>
+
+        <li>
+            <a href="#skills">Skills</a>
+        </li>
+
+        <li>
+            <a href="#projects">Projects</a>
+        </li>
+
+        <li>
+            <a href="#contact">Contact</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            🚀 FRESHER • DEVELOPER • BUILDER
+        </div>
+
+        <h1>
+            Hi, I'm
+            <span>VICKY</span>.
+            <br>
+            Java Developer.
+        </h1>
+
+        <p>
+
+            I'm a fresher passionate about software
+            development, Java, Python, SQL and
+            building practical projects.
+
+        </p>
+
+        <a href="#projects" class="btn">
+            View Projects
+        </a>
+
+        <a href="#contact" class="btn btn-light">
+            Contact Me
+        </a>
+
+    </div>
+
+
+    <!-- MINION -->
+
+    <div class="minion">
+
+        <div class="hair"></div>
+
+        <div class="goggle"></div>
+
+        <div class="eye">
+
+            <div class="pupil"></div>
+
+        </div>
+
+        <div class="smile"></div>
+
+        <div class="overall"></div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+    <h2 class="section-title">
+        About <span>Me</span>
+    </h2>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>
+                👨‍💻 Who I Am
+            </h3>
+
+            <p>
+
+                I'm a fresher focused on becoming
+                a strong software developer.
+
+                I enjoy learning programming
+                step-by-step and building projects.
+
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                🎯 My Goal
+            </h3>
+
+            <p>
+
+                My goal is to start my career
+                in software development and
+                grow into a professional
+                Java backend developer.
+
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                ⚡ My Style
+            </h3>
+
+            <p>
+
+                Simple code, continuous learning,
+                practical projects and a positive
+                problem-solving mindset.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= SKILLS ================= -->
+
+<section id="skills">
+
+    <h2 class="section-title">
+
+        My <span>Skills</span>
+
+    </h2>
+
+
+    <div class="skills">
+
+
+        <div class="card skill">
+
+            <h3>
+                ☕ Java
+            </h3>
+
+            <span>
+                Core Java • OOP • Collections
+            </span>
+
+        </div>
+
+
+        <div class="card skill">
+
+            <h3>
+                🐍 Python
+            </h3>
+
+            <span>
+                Basics • Logic Building
+            </span>
+
+        </div>
+
+
+        <div class="card skill">
+
+            <h3>
+                🗄️ SQL
+            </h3>
+
+            <span>
+                Queries • Joins • Database
+            </span>
+
+        </div>
+
+
+        <div class="card skill">
+
+            <h3>
+                🌱 Spring Boot
+            </h3>
+
+            <span>
+                Backend Development
+            </span>
+
+        </div>
+
+
+        <div class="card skill">
+
+            <h3>
+                🌐 HTML / CSS / JS
+            </h3>
+
+            <span>
+                Frontend Development
+            </span>
+
+        </div>
+
+
+        <div class="card skill">
+
+            <h3>
+                🔧 Git
+            </h3>
+
+            <span>
+                Version Control
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section id="projects">
+
+    <h2 class="section-title">
+
+        Featured <span>Projects</span>
+
+    </h2>
+
+
+    <div class="cards">
+
+
+        <div class="card project">
+
+            <span class="tag">
+                JAVA
+            </span>
+
+            <h3>
+                🏦 Bank Management System
+            </h3>
+
+            <p>
+
+                Console-based banking application
+                using Java OOP concepts such as
+                inheritance, encapsulation and
+                exception handling.
+
+            </p>
+
+        </div>
+
+
+        <div class="card project">
+
+            <span class="tag">
+                JAVA
+            </span>
+
+            <span class="tag">
+                JDBC
+            </span>
+
+            <h3>
+                🎓 Student Management System
+            </h3>
+
+            <p>
+
+                Application to add, update,
+                delete and view student records
+                using Java and database connectivity.
+
+            </p>
+
+        </div>
+
+
+        <div class="card project">
+
+            <span class="tag">
+                AI / ML
+            </span>
+
+            <span class="tag">
+                LSTM
+            </span>
+
+            <h3>
+                ⚡ Energy Consumption Detection
+            </h3>
+
+            <p>
+
+                Machine-learning project focused
+                on energy consumption detection
+                using an LSTM-based approach.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+    <h2 class="section-title">
+
+        Let's <span>Connect</span>
+
+    </h2>
+
+
+    <p>
+
+        I'm open to fresher opportunities,
+        internships and software development
+        roles.
+
+        If you have an opportunity,
+        let's connect!
+
+    </p>
+
+
+    <a
+        href="mailto:Vigneshnagaraj509@gmail.com"
+        class="btn"
+    >
+        📩 Email Me
+    </a>
+
+
+    <a
+        href=https://www.linkedin.com/in/vignesh-n-5bb71a375/?isSelfProfile=true
+        target="_blank"
+        class="btn"
+    >
+        💼 LinkedIn
+    </a>
+
+
+    <a
+        href="https://github.com"
+        target="_blank"
+        class="btn"
+    >
+        💻 GitHub
+    </a>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    © 2026 Vicky.dev
+
+    <br>
+
+    Built with ☕ + 💛 + Code
+
+</footer>
+
+
+</body>
+
+</html>
+```
